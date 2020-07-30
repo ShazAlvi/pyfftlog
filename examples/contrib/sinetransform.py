@@ -6,7 +6,7 @@ Contributed by `@ShazAlvi <https://github.com/ShazAlvi>`_.
 
 This is a simple test program to illustrate how the sine (or cosine as it works
 basically the same way ) Fourier transform works using `FFTLog`. The test
-provides as input as sine function and performs the sine Fourier transform. The
+provides as input a sine function and performs the sine Fourier transform. The
 input function is then recovered by performing an inverse Fourier transform.
 The inverse is performed using the following integral,
 
@@ -28,8 +28,8 @@ import matplotlib.pyplot as plt
 
 # Range of periodic interval
 logtmin = -3
-# logxmax = 0.798 #2pi
-# 5(2pi) #Longer range in r gives you a better reconstruction. 10\pi will give
+# logtmax = 0.798 #2pi
+# 5(2pi) #Longer range in t gives you a better reconstruction. 10\pi will give
 # you a better reconstruction than 2\pi.
 logtmax = 1.497
 # Number of points (Max 4096)
@@ -54,7 +54,7 @@ q = 0
 
 ft = 0.016
 
-# Tell fhti to change kr to low-ringing value
+# Tell fhti to change ft to low-ringing value
 # WARNING: kropt = 3 will fail, as interaction is not supported
 ftopt = 1
 
@@ -111,7 +111,7 @@ for i in range(len(t)):
        scipy.integrate.trapz(f, a_f*np.sin(t[i]*f))
 
 # Plotting the input function and the reconstructed input function and also
-# the distribution of the a(k) vs k.
+# the distribution of the a(f) vs f.
 plt.figure()
 
 ax1 = plt.subplot(121)
